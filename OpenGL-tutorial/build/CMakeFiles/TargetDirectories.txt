@@ -1,9 +1,0 @@
-/Users/arthurzhao/Desktop/Code/TMFVC/OpenGL-tutorial/build/CMakeFiles/opengl_tutorial.dir
-/Users/arthurzhao/Desktop/Code/TMFVC/OpenGL-tutorial/build/CMakeFiles/edit_cache.dir
-/Users/arthurzhao/Desktop/Code/TMFVC/OpenGL-tutorial/build/CMakeFiles/rebuild_cache.dir
-/Users/arthurzhao/Desktop/Code/TMFVC/OpenGL-tutorial/build/glad/CMakeFiles/glad.dir
-/Users/arthurzhao/Desktop/Code/TMFVC/OpenGL-tutorial/build/glad/CMakeFiles/edit_cache.dir
-/Users/arthurzhao/Desktop/Code/TMFVC/OpenGL-tutorial/build/glad/CMakeFiles/rebuild_cache.dir
-/Users/arthurzhao/Desktop/Code/TMFVC/OpenGL-tutorial/build/stb_image/CMakeFiles/stb_image.dir
-/Users/arthurzhao/Desktop/Code/TMFVC/OpenGL-tutorial/build/stb_image/CMakeFiles/edit_cache.dir
-/Users/arthurzhao/Desktop/Code/TMFVC/OpenGL-tutorial/build/stb_image/CMakeFiles/rebuild_cache.dir
