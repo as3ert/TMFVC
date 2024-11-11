@@ -26,8 +26,8 @@ using namespace OGL4Core2::Core;
 static constexpr int initWindowSizeWidth = 1280;
 static constexpr int initWindowSizeHeight = 800;
 static constexpr int openGLVersionMajor = 4;
-static constexpr int openGLVersionMinor = 5;
-static constexpr char imguiGlslVersion[] = "#version 450";
+static constexpr int openGLVersionMinor = 1;
+static constexpr char imguiGlslVersion[] = "#version 410";
 static constexpr char title[] = "OGL4Core2";
 
 Core::Core(Config cfg)

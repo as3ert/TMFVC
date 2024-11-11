@@ -1,5 +1,9 @@
 cmake_minimum_required(VERSION 3.15...3.28 FATAL_ERROR)
 
+# Set C++17 standard
+set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD_REQUIRED True)
+
 # Project
 project(opengl_tutorial
   VERSION 0.5.0
