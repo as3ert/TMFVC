@@ -10,21 +10,17 @@ glxinfo | grep OpenGL
 
 Please ensure that you have the latest drivers for you graphics card.
 
+# Build
+Build system relies on [CMake](https://cmake.org/). So please download and install according to your OS.
+
 ## Windows
+
 Download the latest version of [Visual Studio](https://visualstudio.microsoft.com/de/downloads/).
 
-Download the [64bit Windows installer for CMake](https://cmake.org/download/) and install.
+On Windows use the **CMake GUI** to configure the project. The project is currently **all inclusive of library dependencies**, and you wouldn't be required to install anything outside of what is provided but if there are problems in installing GLFW please see information below:
 
+### Compiling GLFW on your own(only necessary if the provided GLFW sources in this project don't work for you, otherwise go directly to "Compiling the opengl_tutorial project")
 Clone the GLFW github repository from source: https://github.com/glfw/glfw.git. Installation steps are described below.
-
-If you are not running OpenGL version 4.6, download GLAD (Make sure to select the C/C++ version depending on your OpenGL version, Core; ignore all else) and replace the content of the glad folder provided in this project i.e. the KHR and glad incude folders and glad.c source file with the ones you downloaded.
-Also make sure to edit the source file Main.cpp and change the OpenGL MAJOR and MINOR version accordingly and rest of the process should be the same.
-
-*Disclaimer:* The process for compiling the tutorial on Windows is a bit more involved than on a Linux distribution. 
-Please follow the following steps properly in order to avoid problems with the build.
-
-### Compiling GLFW 
-After cloning GLFW using 
 
 ```
 git clone https://github.com/glfw/glfw.git
@@ -53,13 +49,17 @@ Clone this repository via
 git clone https://github.tik.uni-stuttgart.de/ishasharma/OpenGL-tutorial.git
 ```
 
-and copy the following files from the recently compiled glfw or glfw3 using the file explorer: 
+#### If you compiled your own GLFW then: 
 
-From **glfw > build > src > Debug** on your file explorer, copy the `glfw3.lib` file and paste it in **OpenGL_tutorial > glfw > lib**. 
+- Copy the following files from the recently compiled glfw or glfw3 using the file explorer: 
 
-From **glfw > include**, paste the `GLFW` folder into **OpenGL_tutorial > glfw > include**.
+- From **glfw > build > src > Debug** on your file explorer, copy the `glfw3.lib` file and paste it in **OpenGL_tutorial > glfw > lib**. 
 
-Now, run the following commands:
+- From **glfw > include**, paste the `GLFW` folder into **OpenGL_tutorial > glfw > include**.
+
+#### Otherwise:
+
+Now, run the following commands in powershell:
 ```
 cd OpenGL_tutorial
 mkdir build && cd build
@@ -76,7 +76,7 @@ Click Ok and repeat for the "Library Directories" with the glfw "lib" folder.
 
 Next, go to "Linker", "Input",  and open up "Additional Dependencies". 
 
-Here, make sure you have the `glfw3.lib`, and `opengl32.lib`. 
+Here, make sure you have the `glfw3.lib`, and `opengl32.lib` if you compiled GLFW on your own.
 If not, add them (even though it's called "opengl32", it's still the 64bit version, this is just a naming convention).
 
 Make sure, the C/C++ language standard is set to the latest, for example: Preview - Features from the **Latest C++ Working Draft (/std:c++latest)**; otherwise, you will not get access to std libraries such as `filesystem`.
@@ -87,18 +87,22 @@ Launch the app using CTRL+F5 **after** selecting on your main solution node the 
 
 ## Linux
 
-Install GLFW using your package manager for, e.g., Ubuntu using: 
+Some dependencies are required depending on the used display server.
 
-` sudo apt install glfw `
+- Debian / Ubuntu
+  - X11: `sudo apt install xorg-dev`
+  - Wayland: `sudo apt install libwayland-dev libxkbcommon-dev wayland-protocols extra-cmake-modules`
+- Fedore / Red Hat
+  - X11: `sudo dnf install libXcursor-devel libXi-devel libXinerama-devel libXrandr-devel`
+  - Wayland: `sudo dnf install wayland-devel libxkbcommon-devel wayland-protocols-devel extra-cmake-modules`
 
-Install cmake:
-` sudo apt install cmake `
+Source: [GLFW Documentation](https://www.glfw.org/docs/3.3/compile.html#compile_deps).
 
-Then, run the following commands to clone and build the linux binaries:
+If all dependencies are installed, you can just run:
 
 ```
 git clone https://github.tik.uni-stuttgart.de/ishasharma/OpenGL-tutorial.git
-cd OpenGL-tutorial
+cd OpenGL_tutorial
 mkdir build && cd build
 cmake ..
 make
@@ -140,6 +144,15 @@ make
 ```
 
 ## Example
-In the end, running the `./opengl_tutorial` should lead to
-![alt text](exampleOutput.jpg)
+In the end, running the `./opengl_tutorial` would run the application
 
+# Compiling for Assignment01
+
+A special cmake switch is needed to compile sources from Assignment 1 about a textured quad that had to be aspect ratio corrected
+```
+cmake -Dassignment01=true ..
+
+```
+
+**Credits**
+for OGL4Core2 goes to previous work from *Moritz Heinemann*, the sources fot the heghtfield plugin are copied from his work. 

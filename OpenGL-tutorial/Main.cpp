@@ -36,11 +36,11 @@ Course: TMFVC
 // Vertex coordinates
 GLfloat vertices[] =
 	{
-		//   COORDINATES   /      COLORS    /   TexCoord 	//
-		-1.5f, -1.5f, 0.0f, 1.0f, 0.0f, 0.0f, 0.0f, 0.0f, 	// Lower left corner
-		-1.5f,  1.5f, 0.0f, 0.0f, 1.0f, 0.0f, 0.0f, 1.0f,  	// Upper left corner
-		 1.5f,  1.5f, 0.0f, 0.0f, 0.0f, 1.0f, 1.0f, 1.0f,	// Upper right corner
-		 1.5f, -1.5f, 0.0f, 1.0f, 1.0f, 1.0f, 1.0f, 0.0f	// Lower right corner
+		//     COORDINATES     /        COLORS      /   TexCoord  //
+		-1.5f, -1.5f, 0.0f, 1.0f, 0.0f, 0.0f, 0.0f, 0.0f, // Lower left corner
+		-1.5f, 1.5f, 0.0f, 0.0f, 1.0f, 0.0f, 0.0f, 1.0f,  // Upper left corner
+		1.5f, 1.5f, 0.0f, 0.0f, 0.0f, 1.0f, 1.0f, 1.0f,	  // Upper right corner
+		1.5f, -1.5f, 0.0f, 1.0f, 1.0f, 1.0f, 1.0f, 0.0f	  // Lower right corner
 };
 
 // Indices for vertex order
@@ -56,13 +56,8 @@ int main()
 	glfwInit();
 
 	// using OpenGL 4.6 Core profile
-	// glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 4);
-	// glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 6);
-	// glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
-
-	// using OpenGL 4.1 Core profile (Since I'm currently using Apple Silicon M3 series)
 	glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 4);
-	glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 1);
+	glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 6);
 	glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
 
 	// create window with desired resolution
@@ -103,7 +98,6 @@ int main()
 
 	// get uniform scale of the shader
 	GLuint ushader_id = glGetUniformLocation(myShader.shader_id, "scale");
-	GLuint aspect_ratio_id = glGetUniformLocation(myShader.shader_id, "aspect_ratio");
 
 	std::string parentDir = (std::filesystem::current_path().std::filesystem::path::parent_path()).string();
 	std::string texPath = "/textures/";
@@ -115,37 +109,22 @@ int main()
 	// main rendering loop
 	while (!glfwWindowShouldClose(window))
 	{
-		int windowWidth, windowHeight;
-		glfwGetFramebufferSize(window, &windowWidth, &windowHeight); 
-		float aspect_ratio = float(windowWidth) / float(windowHeight);
-
-		// std::cout << "Window Width: " << windowWidth << " Window Height: " << windowHeight << std::endl;
-		// std::cout << "Ratio: " << aspect_ratio << std::endl;================================
-
 		// background color
 		glClearColor(0.07f, 0.13f, 0.77f, 1.0f);
 		// Clean the back buffer before assigning the new color
 		glClear(GL_COLOR_BUFFER_BIT);
-
 		// Tell OpenGL which Shader Program we want to use
 		myShader.init();
-
 		// Assigns a value to the uniform; NOTE: Must always be done after activating the Shader Program
 		glUniform1f(ushader_id, 0.5f);
-		glUniform1f(aspect_ratio_id, aspect_ratio);
-
 		// Binds texture so that is appears in rendering
 		texImage.bind();
-
 		// Bind the VertexArray
 		vao.bind();
-
 		// Draw triangle  primitives using their index information: number, datatype, index of indices
-		glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
-
+		glDrawElements(GL_TRIANGLES, 9, GL_UNSIGNED_INT, 0);
 		// Swap back and front buffers
 		glfwSwapBuffers(window);
-		
 		// monitor GLFW events
 		glfwPollEvents();
 	}
