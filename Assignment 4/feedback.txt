@@ -1,0 +1,3 @@
+Total points: 16/20
+
+Wrong principal curvature formula; check formula for mixed derivative

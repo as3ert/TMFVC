@@ -1,0 +1,5 @@
+Exc. 1: good. 6/6
+Exc. 2: good, except lennard-jones wrong definition of function (`1 / x**12 - 2 / x**6` -> `1 / x**12 - 1 / x**6`) 6/8
+Exc. 3: good. 6/6
+Exc. 4: Good - you also included $P_7$ in the computations for $P_8$ and therefore got some different results 4/4
+Total: 22/20

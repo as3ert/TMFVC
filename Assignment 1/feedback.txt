@@ -1,0 +1,7 @@
+1. Cool proof however axiom 2 is not fulfilled because sin and cos functions repeat their values periodically for different values of the angle , hence not unique(6)
+2. (4)
+3. Rotated wrong, I think dot product is incorrect. Can you try it using explicit formulas: x_new = p[0] * np.cos(phi) - p[1] * np.sin(phi)
+    y_new = p[0] * np.sin(phi) + p[1] * np.cos(phi)(3)
+4. (8)
+
+Total: 21 

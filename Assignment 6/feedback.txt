@@ -1,0 +1,5 @@
+Exc. 1: Good! 3/3
+Exc. 2: a) almost good - I am not convinced of streamline being "just" the moving direction. Path and Streamline are good, streakline wrong. 5/8
+Exc. 3: Good. 3/3
+Exc. 4: Good, but in c) the function is $u_\infty = 20+\fracx$. The rest is good! 5/6
+Total: 16/20

@@ -1,0 +1,3 @@
+Full score: 14/20
+Q7.1: wrong part 2
+Q7.5: no distinction between different interpolation methods
