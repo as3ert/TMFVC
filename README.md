@@ -1,3 +1,3 @@
 # TMFVC
 
-This repository contains solutions for  exercises.
+This repository contains solutions for Theoretical and Methodological Foundations of Visual Computing exercises.
